@@ -8,7 +8,7 @@ professor : Josef Teichmann
 
 author : walkerchi
 
-
+----
 
 # Approximation
 
@@ -44,7 +44,7 @@ $\Rightarrow$ NN with ReLU is dense in $C(\mathcal X,\R^m)$
 
 **Faber-Schauder basis** : $s_{n,k} = 2^{1+\frac{n}{2}}\int_0^t\psi_{n,k}(u)\text du\quad n,k\in\Z$
 
-<img src=".\README.assets\faber_schauder_basis.png" alt="img" style="zoom:67%;" />
+<img src="D:\CMY\ETH\Semester-2\Mathematics for New Technologies in Finance\README.assets\faber_schauder_basis.png" alt="img" style="zoom:67%;" />
 $$
 v = \sum_{n=0}^\infin \alpha_n b_n\quad \forall v\in  \R,\exists\alpha_n\in\R,\exists b_n\in \{s_{*,*}\}
 $$
@@ -52,7 +52,7 @@ $$
 
 **Haar function** : $\psi_{n,k}(t) =2^{n/2}\psi(2^nt-k)\quad n,k\in \Z\quad\psi(t) = \begin{cases}1&t\in[0, \frac{1}{2})\\-1&t\in[\frac{1}{2},1)\\ 0&\text{otherwise}\end{cases}$
 
-<img src=".\README.assets\haar_function.png" alt="img" style="zoom:50%;" />
+<img src="D:\CMY\ETH\Semester-2\Mathematics for New Technologies in Finance\README.assets\haar_function.png" alt="img" style="zoom:50%;" />
 
 - $\text{supp}(\psi_{n,k}) = [k2^{-n},(k+1)2^{-n})$
 - $\int_\R \psi_{n,k}(t)\text dt = 0$
@@ -137,7 +137,7 @@ utility function $u$ : the additional utility or satisfaction from consuming one
 - concave : $f''(x)<0$
 - monotone increase : $f'(x)>0$
 
-<img src=".\README.assets\utility.png" alt="img" style="zoom:80%;" />
+<img src="D:\CMY\ETH\Semester-2\Mathematics for New Technologies in Finance\README.assets\utility.png" alt="img" style="zoom:80%;" />
 
 expected utility optimization problem : $\underset{\phi_t^i}{\text{argmax}}\mathbb~E[u(V_N)]$
 
