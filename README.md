@@ -44,7 +44,7 @@ $\Rightarrow$ NN with ReLU is dense in $C(\mathcal X,\R^m)$
 
 **Faber-Schauder basis** : $s_{n,k} = 2^{1+\frac{n}{2}}\int_0^t\psi_{n,k}(u)\text du\quad n,k\in\Z$
 
-<img src="D:\CMY\ETH\Semester-2\Mathematics for New Technologies in Finance\README.assets\faber_schauder_basis.png" alt="img" style="zoom:67%;" />
+<img src=".\README.assets\faber_schauder_basis.png" alt="img" style="zoom:67%;" />
 $$
 v = \sum_{n=0}^\infin \alpha_n b_n\quad \forall v\in  \R,\exists\alpha_n\in\R,\exists b_n\in \{s_{*,*}\}
 $$
@@ -52,7 +52,7 @@ $$
 
 **Haar function** : $\psi_{n,k}(t) =2^{n/2}\psi(2^nt-k)\quad n,k\in \Z\quad\psi(t) = \begin{cases}1&t\in[0, \frac{1}{2})\\-1&t\in[\frac{1}{2},1)\\ 0&\text{otherwise}\end{cases}$
 
-<img src="D:\CMY\ETH\Semester-2\Mathematics for New Technologies in Finance\README.assets\haar_function.png" alt="img" style="zoom:50%;" />
+<img src=".\README.assets\haar_function.png" alt="img" style="zoom:50%;" />
 
 - $\text{supp}(\psi_{n,k}) = [k2^{-n},(k+1)2^{-n})$
 - $\int_\R \psi_{n,k}(t)\text dt = 0$
@@ -82,12 +82,12 @@ n-th level of  signature : $S(X)_{a,b}^{i_1,i_2,\cdots,i_n}=\int_a^b\int_{a}^{t_
 
 - $S(X)_{a,b}^{i_1,i_2,\cdots,i_n}\in \R^{n^{\otimes d}}$, it's a $d$ dimension tensor with each dimension  of span  $n$
 
-signature : $S(X)_{a,b} = (1,\text{Sig}_{[a,b]}(X)^{i_1},\text{Sig}_{[a,b]}(X)^{i_1,i_2},\cdots,\text{Sig}_{[a,b]}^{i_1,i_2,\cdots,i_d})$
+signature : $S(X)_{a,b} = (1,S(X)_{a,b}^{i_1},S(X)_{a,b}^{i_1,i_2},\cdots,S(X)_{a,b}^{i_1,i_2,\cdots,i_d})$
 
 - the maximum length of $S(X)_{a,b}$ is $d^0+d^1+d^2 + \cdots + d^d = \frac{d^{d+1}-1}{d-1}$
 - the length of depth $M$ is $d^0 +  \cdots +d^{M} = \frac{d^{M+1} - 1}{d-1}$
 
-normally we got :
+normally we got : $X_a^i$ denotes $i$-th component at time  $a$ of vector of function $X$
 
 - $S(X)_{a,b}^i = \int_a^b dX = X_b^i-X_a^i$
 
@@ -107,13 +107,15 @@ normally we got :
 
 # Financial Market
 
+> Notation
+>
+> - $S_t^i$ : $i$-th asset prices at time $t$, $S\in\R^{N\times {d+1}}$, normally $S^0$ represent bank account
+> - $\phi_t^i$ : holdings/strategy in $i$-th assets at time $t$  
+> - $V_t$ : value of portfolio at time $t$ , $V_t = \sum_i \phi_t^i S_t^i$
 
+self-financing : $\text dV(t) = \sum_{i=1}^n \phi^i(t)\text dS^i(t)$
 
-- $S_t^i$ : $i$-th asset prices at time $t$, $S\in\R^{N\times {d+1}}$, normally $S^0$ represent bank account
-- $\phi_t^i$ : holdings in $i$-th assets at time $t$  
-- $V_t$ : value of portfolio at time $t$ , $V_t = \sum_i \phi_t^i S_t^i$
-
-self-financing : $\sum_i \phi^i_{t+1}S_t^i = \sum_i\phi_t^i S_t^i\quad\forall t\in[0,N)$
+- $\sum_i \phi^i_{t+1}S_t^i = \sum_i\phi_t^i S_t^i\quad\forall t\in[0,N)$
 
 value process : $V_{t+1}-V_t = \sum_i\phi_t^i(S_{t+1}^i-S_t^i)\quad \forall t\in[0,N)$
 
@@ -123,12 +125,14 @@ arbitrage : $\underbrace{P(V_t\ge  0 )=1}_{\text{no risk of losing money}}\and \
 
 ## Stochastic Differential Equation
 
-brownian motion/wiener process : $W_{t+1} - W_t \sim \mathcal N(0,1)\quad W_0=0$
+**Brownian motion/Wiener process** : $W_{t+1} - W_t \sim \mathcal N(0,1)\quad W_0=0\rightarrow W_t$
 
-Geometric Brownian motion : $dS_t = \mu ~S_t~ dt + \sigma~ S_t~ dW_t\Leftrightarrow S_t = S_0 e^{\left(\mu - \frac{\sigma^2}{2}\right)t+\sigma W_t}$
+**Geometric Brownian motion** : $dS_t = \mu ~S_t~ dt + \sigma~ S_t~ dW_t\Leftrightarrow S_t = S_0 e^{\left(\mu - \frac{\sigma^2}{2}\right)t+\sigma W_t}$
 
-- $W_t$ is brownian motion/wiener  process
+- $W_t$ is brownian motion/wiener process
 - $\mu,\sigma$ is the expectation/variance for the GBM
+
+<img src="README.assets/geometric_brownian_motion.png" alt="img" style="zoom:50%;" />
 
 ## Utility
 
@@ -137,7 +141,7 @@ utility function $u$ : the additional utility or satisfaction from consuming one
 - concave : $f''(x)<0$
 - monotone increase : $f'(x)>0$
 
-<img src="D:\CMY\ETH\Semester-2\Mathematics for New Technologies in Finance\README.assets\utility.png" alt="img" style="zoom:80%;" />
+<img src=".\README.assets\utility.png" alt="img" style="zoom:80%;" />
 
 expected utility optimization problem : $\underset{\phi_t^i}{\text{argmax}}\mathbb~E[u(V_N)]$
 
@@ -163,7 +167,12 @@ expected utility optimization problem : $\underset{\phi_t^i}{\text{argmax}}\math
 - $\kappa$ : rate of variance reverts toward it's long  term
 - $\xi$ :  volatility of volatility, the variance of $\nu_t$
 
-**Ito's lemma** : $\text d f(S,t) =  \left(\frac{\partial f}{\partial t} + \mu\frac{\partial f}{\partial S}+\frac{1}{2}\sigma^2\frac{\partial^2 f}{\partial S^2}\right)\text dt + \sigma\frac{\partial f}{\partial S}\text dW_t\quad \text dS(t)=\mu \text dt+\sigma  \text d W_t$
+- ambitious approach
+  - modeling $\theta,\kappa,\xi,\rho,\mu$ where $\rho$ is the correlation between $W_t,W'_t$
+- modest approach
+  - modeling $\theta, \kappa,\xi$ , and $\rho,\mu$ from emperical
+
+**Ito's lemma** : $\text d f(S,t) =  \left(\frac{\partial f}{\partial t} + \mu\frac{\partial f}{\partial S}+\frac{1}{2}\sigma^2\frac{\partial^2 f}{\partial S^2}\right)\text dt + \sigma\frac{\partial f}{\partial S}\text dW_t\quad \underbrace{\text dS(t)=\mu \text dt+\sigma \text d W_t}_{\text{Stochastic Differential Equation}}$
 
 **Black Scholes equation** : $\frac{\partial C}{\partial t}  + rK\frac{\partial C}{\partial K} +\frac{1}{2}\sigma^2 K^2\frac{\partial^2  C}{\partial K^2}-rC= 0$ : derive from Ito's lemma
 
@@ -205,7 +214,7 @@ $$
 $$
 \text d S_t = S_t\mu \text d t+S_t\sigma\text d W_t
 \\
-\underset{H,\pi}{\text{argmin}}~\mathbb E\left[\left\Vert f(S_T) - \pi - \int_0^T H_t\text dS_t\right\Vert^2\right]
+\underset{H,\pi}{\text{min}}~\mathbb E\left[\left\Vert f(S_T) - \pi - \int_0^T H_t\text dS_t\right\Vert^2\right]
 $$
 
 - $S_t$ is the risky stocks prices, governed by parameter $\mu$ and $\sigma$ ,  with $W_t$ a brownian motion or wiener process
@@ -260,6 +269,7 @@ $$
 
 - $A_i, b_i$ are randomly generated matrices/vectors
 - $u_i$  is control coefficient learned by network
+- $\sigma$ is the sigmoid//tanh function
 
 ----
 
@@ -272,15 +282,18 @@ $$
 - $r,R(s,a)$ : reward, reward function , $r\in \R, R\in S\times  A\to \R$
 - $Q(s,a)$ ：Q/state action function, return  the priority for each state and action, $Q\in S\times A\to \R$
 
-**[DPP]Dynamic programming principle** : $V^*(t,s)=\underset{a}{\text{max}}\left\{\int_t^T c(\tau,s(\tau),a(\tau))\text d\tau+V*(T,s(T))\right\}$
+**[DPP] Dynamic programming principle** : $V^*(t,s)=\underset{a}{\text{max}}\left\{\int_t^T c(\tau,s(\tau),a(\tau))\text d\tau+V*(T,s(T))\right\}$
 
-**[HJB]  Hamiton-Jacobi-Bellman equation** : $\frac{\partial V(s,t)}{\partial t} + \underset{a}{\text{max}}\left(\frac{\partial V(s,t)}{\partial s}\cdot  f(t,s,a)+c(t,s,a)\right)=0$
+- $V(s) = \underset{a}{\text{max}}\left(R(s,a)+\gamma\underset{s'\in S}{\sum}P(s'|s,a)V(s')\right)$
+
+**[HJB] Hamiton-Jacobi-Bellman equation** : $\frac{\partial V(s,t)}{\partial t} + \underset{a}{\text{max}}\left(\frac{\partial V(s,t)}{\partial s}\cdot  f(t,s,a)+c(t,s,a)\right)=0$
 
 - $f(t,s,a)$ : system dynamics, how state change over time, $\frac{\text d s(t)}{\text dt} = f(t,s,a)$
+- $V^*(s) = \underset{a\in A}{\text{max}}  \left(R(s,a)+\gamma  \underset{s'\in S}{\sum}P(s'|s,a)V^*(s')\right)$
 
 **Bellman equation** : $Q(s,a) = r+\gamma~\underset{a'}{\text{max}}~Q(s',a')$
 
-**Value  Iteration** : $V^{(n+1)}=\underset{a}{\text{max}}\left\{R(s,a)+\gamma \sum_{s'}P(s|s',a)V^{(n)}(s')\right\}$
+**Value  Iteration** : $V^{(n+1)}=\underset{a}{\text{max}}\left\{R(s,a)+\gamma \sum_{s'}P(s'|s,a)V^{(n)}(s')\right\}$
 
 **Policy Iteration** : $\begin{aligned}V^{\pi^{(n)}}(s)  &= R(s,\pi(s))+\gamma\sum_{s'}P(s'|s,\pi(s))V^{\pi^{(n)}}(s')\\\pi^{(n+1)}&=\underset{\pi}{\text{argmax}}\left\{R(s,a)+\gamma\sum_{s'} P(s'|s,a)V^{\pi^{(n)}}(s')\right\}\end{aligned}$
 
@@ -323,7 +336,7 @@ $$
 &\propto \underset{\theta}{\text{argmin}}~\frac{\sigma^2}{\tau^2}\Vert\theta\Vert^2 + \Vert y-\theta x\Vert^2
 \end{aligned}
 $$
-**[SGLD]Stochastic Gradient Langevin Dynamics** : gradient descent plus noise : 
+**[SGLD] Stochastic Gradient Langevin Dynamics** : gradient descent plus noise : 
 $$
 \text d\theta_t = \frac{1}{2}\nabla\text{log}~p(\theta_t|x_1,\dots,x_n)\text dt + \text  dW_t
 $$
